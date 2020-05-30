@@ -12,7 +12,7 @@ const slides = [
             'horizontal': './img/2_h.jpg',
         },
         title: {__html: 'Польза и&nbsp;вкус'},
-        text: {__html: 'Мы взглянули на воду по-новому и добавили ей вкуса.<br> Вода + сок от &laquo;Доброго&raquo; - это настоящая артезианская вода + натуральный свежий сок'}
+        text: {__html: 'Мы взглянули на&nbsp;воду по-новому и&nbsp;добавили&nbsp;ей вкуса.<br> Вода + сок от&nbsp;&laquo;Доброго&raquo;&nbsp;- это&nbsp;настоящая артезианская вода + натуральный свежий сок'}
     },
     {
         addClass: 'first left',
@@ -21,7 +21,7 @@ const slides = [
             'horizontal': './img/1_h.jpg',
         },
         title: {__html: 'Встречайте новый &laquo;Добрый&raquo; вода + сок'},
-        text: {__html: 'Легкий и вкусный способ поддержать водный баланс в течение дня'}
+        text: {__html: 'Легкий и&nbsp;вкусный способ поддержать водный баланс в&nbsp;течение дня'}
     },
     {
         addClass: 'third right',
@@ -30,7 +30,7 @@ const slides = [
             'horizontal': './img/0_h.jpg',
         },
         title: {__html: 'Сочный&nbsp;лимон и&nbsp;мята'},
-        text: {__html: 'Новый свежий вкус для доброго и продуктивного дня'}
+        text: {__html: 'Новый свежий вкус для&nbsp;доброго и&nbsp;продуктивного&nbsp;дня'}
     },
     // {
     //     addClass: 'fourth left',
@@ -89,7 +89,7 @@ class Content extends React.Component {
         return(
             <FluidGallery
                 className="gallery"
-                style={{ width: '100vw', height: '100vh' }}
+                style={{ width: '100vw', height: '100vh', backgroundSize: 'contain' }}
                 slides={[ slides[0].image[imgOrientation], slides[1].image[imgOrientation], slides[2].image[imgOrientation] ]}
                 startAt={0}
                 onChange={(index) => {

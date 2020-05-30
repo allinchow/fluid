@@ -6,37 +6,41 @@ import './App.css';
 
 const slides = [
     {
-        image: {
-            'vertical': './img/0_v.jpg',
-            'horizontal': './img/0_h.jpg',
-        },
-        title: 'Lorem ipsum dolor sit amet (0)',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, aspernatur.'
-    },
-    {
-        image: {
-            'vertical': './img/1_v.jpg',
-            'horizontal': './img/1_h.jpg',
-        },
-        title: 'Voluptates, reprehenderit sequi (1)',
-        text: 'Voluptates, reprehenderit sequi soluta provident! Fugit, tempora.'
-    },
-    {
+        addClass: 'second right',
         image: {
             'vertical': './img/2_v.jpg',
             'horizontal': './img/2_h.jpg',
         },
-        title: 'Lorem ipsum dolor sit amet (2)',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, aspernatur.'
+        title: {__html: 'Польза и&nbsp;вкус'},
+        text: {__html: 'Мы взглянули на воду по-новому и добавили ей вкуса.<br> Вода + сок от &laquo;Доброго&raquo; - это настоящая артезианская вода + натуральный свежий сок'}
     },
     {
+        addClass: 'first left',
         image: {
-            'vertical': './img/3_v.jpg',
-            'horizontal': './img/3_h.jpg',
+            'vertical': './img/1_v.jpg',
+            'horizontal': './img/1_h.jpg',
         },
-        title: 'Voluptates, reprehenderit sequi (3)',
-        text: 'Voluptates, reprehenderit sequi soluta provident! Fugit, tempora.'
-    }
+        title: {__html: 'Встречайте новый &laquo;Добрый&raquo; вода + сок'},
+        text: {__html: 'Легкий и вкусный способ поддержать водный баланс в течение дня'}
+    },
+    {
+        addClass: 'third right',
+        image: {
+            'vertical': './img/0_v.jpg',
+            'horizontal': './img/0_h.jpg',
+        },
+        title: {__html: 'Сочный&nbsp;лимон и&nbsp;мята'},
+        text: {__html: 'Новый свежий вкус для доброго и продуктивного дня'}
+    },
+    // {
+    //     addClass: 'fourth left',
+    //     image: {
+    //         'vertical': './img/0_v.jpg',
+    //         'horizontal': './img/0_h.jpg',
+    //     },
+    //     title: {__html: 'Нежная клубника и&nbsp;базилик'},
+    //     text: {__html: 'Нежный вкус для дня, полного открытий'}
+    // },
 ];
 
 class App extends React.Component {
@@ -86,7 +90,7 @@ class Content extends React.Component {
             <FluidGallery
                 className="gallery"
                 style={{ width: '100vw', height: '100vh' }}
-                slides={[ slides[0].image[imgOrientation], slides[1].image[imgOrientation], slides[2].image[imgOrientation], slides[3].image[imgOrientation] ]}
+                slides={[ slides[0].image[imgOrientation], slides[1].image[imgOrientation], slides[2].image[imgOrientation] ]}
                 startAt={0}
                 onChange={(index) => {
                     this.setState({
@@ -108,9 +112,9 @@ function SlideText(props) {
     const fadeIn = 'text-animated-rl visible';
     const fadeOut = 'text-animated-rl-end hidden';
     return (
-        <div className={`slide-text ${props.fadeIn ? fadeIn : fadeOut}`}>
-            <h2 className="slide-text-title">{props.slide.title}</h2>
-            <p className="slide-text-desc">{props.slide.text}</p>
+        <div className={`slide-text ${props.slide.addClass} ${props.fadeIn ? fadeIn : fadeOut}`}>
+            <h2 className="slide-text-title" dangerouslySetInnerHTML={props.slide.title} />
+            <p className="slide-text-desc" dangerouslySetInnerHTML={props.slide.text} />
         </div>
     );
 }

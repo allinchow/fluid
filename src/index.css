@@ -7,12 +7,10 @@ html,body {
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
-
-.App {
-  position: relative;
+* {
+  box-sizing: border-box;
 }
-
-header {
+.App,header {
   position: relative;
 }
 
@@ -40,23 +38,72 @@ header {
   right: 0px;
   bottom: 0px;
   padding: 4vw;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  
   justify-content: center;
-  align-items: center;
   color: rgb(255, 255, 255);
   font-family: Quicksand, "Helvetica Neue", sans-serif;
   pointer-events: none;
+  transition: .6s;
 }
 
 .slide-text-title {
+  width: 100%;
   font-size: 10vw;
+  text-transform: uppercase;
+  text-align: left;
+  font-family:  Helvetica Neue, Arial Narrow, sans-serif;
 }
 
 .slide-text-desc {
+  width: 100%;
   font-size: 7vw;
+  text-align: left;
+}
+.first,.second,.third,.fouth {
+  
 }
 
+@media(min-width: 768px) {
+  .first,.second,.third,.fouth {
+    /* width: 70%; */
+    
+    /* display: inline-block; */
+  }
+  .left {
+    right: auto;
+  }
+  .right {
+    left: auto;
+  }
+}
+@media (min-width: 768px) {
+  .slide-text {
+    padding: 6vw;
+  }
+  .slide-text-title {
+    font-size: 6vw;
+  }
+  .slide-text-desc {
+    font-size: 4vw;
+  }
+}
+@media (min-width: 992px) {
+  .slide-text {
+    /* padding: 10vw; */
+    width: 50%;
+    
+  }
+  .slide-text-title {
+    font-size: 3vw;
+  }
+  .slide-text-desc {
+    font-size: 2vw;
+  }
+}
 p {
   margin: 0;
   font-size: 30px;
@@ -79,36 +126,7 @@ p {
   margin-bottom: 7px;
   background: #fff;
 }
-/* .gallery {
-  width: 100vw;
-  height: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-} */
-@media (min-width: 768px) {
-  .slide-text {
-    padding: 6vw;
-  }
-  .slide-text-title {
-    font-size: 6vw;
-  }
-  .slide-text-desc {
-    font-size: 4vw;
-  }
-}
-@media (min-width: 768px) {
-  .slide-text {
-    padding: 4vw;
-    transition: .6s;
-  }
-  .slide-text-title {
-    transition: .4s;
-  }
-  .slide-text-desc {
-    font-size: 3vw;
-  }
-}
+
 .visible {
   opacity: 1;
   visibility: visible;
@@ -262,3 +280,4 @@ p {
     -ms-transform:  translate(-100px,-75px)  ;
   }
 }
+

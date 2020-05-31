@@ -42,7 +42,6 @@ const slides = [
     //     text: {__html: 'Нежный вкус для дня, полного открытий'}
     // },
 ];
-
 class App extends React.Component {
     render() {
         return (
@@ -78,18 +77,17 @@ class Content extends React.Component {
         );
     }
     renderGallery() {
-        const clientW = window.innerWidth;
-        const clientH = window.innerHeight;
         let imgOrientation = null;
-        if (clientH > clientW) {
+        if (window.innerHeight > window.innerWidth) {
             imgOrientation = 'vertical';
         } else {
             imgOrientation = 'horizontal';
         }
+        
         return(
             <FluidGallery
                 className="gallery"
-                style={{ width: '100vw', height: '100vh', backgroundSize: 'contain' }}
+                style={{ width: '100vw', height: '100vh' }}
                 slides={[ slides[0].image[imgOrientation], slides[1].image[imgOrientation], slides[2].image[imgOrientation] ]}
                 startAt={0}
                 onChange={(index) => {
